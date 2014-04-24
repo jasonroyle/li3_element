@@ -29,10 +29,7 @@ class Element extends \lithium\template\Helper {
 			'max' => 0,
 			'per_row' => 1,
 			'row' => [],
-			'column' => [],
-			'first_column' => [],
-			'last_column' => [],
-			'first_and_last_column' => []
+			'column' => []
 		];
 		$options += $defaults;
 
@@ -80,11 +77,11 @@ class Element extends \lithium\template\Helper {
 					$render .= '>';
 				}
 				$render .= '<div ';
-				if ($first && !$last) {
+				if ($first && !$last && isset($options['first_column'])) {
 					$render .= $this->_attributes($options['first_column']);
-				} elseif (!$first && $last) {
+				} elseif (!$first && $last && isset($options['last_column'])) {
 					$render .= $this->_attributes($options['last_column']);
-				} elseif ($first && $last) {
+				} elseif ($first && $last && isset($options['first_and_last_column'])) {
 					$render .= $this->_attributes($options['first_and_last_column']);
 				} else {
 					$render .= $this->_attributes($options['column']);
