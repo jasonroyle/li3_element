@@ -1,6 +1,6 @@
 <?php
 
-namespace app\extensions\helper;
+namespace li3_element\extensions\helper;
 
 use lithium\template\View;
 
