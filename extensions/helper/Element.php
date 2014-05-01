@@ -11,6 +11,18 @@ use lithium\template\View;
 class Element extends \lithium\template\Helper {
 
 	/**
+	 * Renders an element.
+	 *
+	 * @param string $element
+	 * @param array $data
+	 * @return string Rendered HTML
+	 */
+	public function render ($element, array $data = []) {
+		$view = new View($this->_context->view()->_config);
+		return $view->render(['element' => $element], $data);
+	}
+
+	/**
 	 * Iterates through items and renders an element per item. The elements are wrapped in row and
 	 * column divs and returned as a rendered HTML string.
 	 *
@@ -22,7 +34,6 @@ class Element extends \lithium\template\Helper {
 	public function columns ($element, array $data, array $options = []) {
 
 		$render = '';
-		$view = new View($this->_context->view()->_config);
 
 		$defaults = [
 			'offset' => 0,
@@ -91,10 +102,7 @@ class Element extends \lithium\template\Helper {
 				// Render the element
 				$elementData = $data;
 				$elementData[$options['key']] = $item;
-				$render .= $view->render(
-					['element' => $element],
-					$elementData
-				);
+				$render .= $this->render($element, $elementData);
 
 				// Close rows and columns
 				$render .= '</div>';
