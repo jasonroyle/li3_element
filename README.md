@@ -15,23 +15,34 @@ Finally make the application aware of the library by adding the following to `ap
 Libraries::add('li3_element');
 ```
 
-## Usage
+## Render
 
-### Columns
+Renders an element.
+
+### Params
+
+* `$element` (string)
+* `$data` (array, optional)
+
+### Return
+
+Rendered HTML (string)
+
+## Columns
 
 Iterates through items and renders an element per item. The elements are wrapped in row and column divs and returned as a rendered HTML string.
 
-#### Params
+### Params
 
 * `$element` (string)
 * `$data` (array)
 * `$options` (array, optional)
 
-#### Return
+### Return
 
 Rendered HTML (string)
 
-#### Examples
+### Examples
 
 By default the first value of the data array will be used as the items of which to iterate through.
 
