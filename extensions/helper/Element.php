@@ -31,14 +31,14 @@ class Element extends \lithium\template\Helper {
 	 * @param array $options
 	 * @return string Rendered HTML
 	 */
-	public function columns ($element, array $data, array $options = []) {
+	public function grid ($element, array $data, array $options = []) {
 
 		$render = '';
 
 		$defaults = [
 			'offset' => 0,
 			'max' => 0,
-			'per_row' => 1,
+			'columns' => 1,
 			'row' => [],
 			'column' => []
 		];
@@ -68,11 +68,11 @@ class Element extends \lithium\template\Helper {
 				if ($options['max'] > 0 && $itemCount > $options['max']) break;
 
 				// Decipher first and last columns
-				if (($itemCount - 1) % $options['per_row'] == 0) {
+				if (($itemCount - 1) % $options['columns'] == 0) {
 					$first = true;
 				}
 				if (
-					$itemCount % $options['per_row'] == 0
+					$itemCount % $options['columns'] == 0
 					|| $itemCount == $options['max']
 					|| $loopCount == $itemTotal
 				) {
