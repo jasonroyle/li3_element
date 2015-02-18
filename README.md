@@ -2,14 +2,21 @@
 
 ## Installation
 
-Assuming your project is a clone of `https://github.com/UnionOfRAD/framework.git`, register li3_element as a submodule into the projects' libraries.
+### Composer
 
 ```
-cd path/to/project
+composer require jasonroyle/li3_element
+```
+
+### Git
+
+```
 git submodule add https://github.com/jasonroyle/li3_element.git libraries/li3_element
 ```
 
-Finally make the application aware of the library by adding the following to `app/config/bootstrap/libraries.php`.
+## Enable the Library
+
+Make the application aware of the library by adding the following to `app/config/bootstrap/libraries.php`.
 
 ```php
 Libraries::add('li3_element');
