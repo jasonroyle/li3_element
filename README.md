@@ -81,7 +81,7 @@ echo $this->element->grid('post', ['post' => $posts], [
 ]);
 ```
 
-Appling attributes to rows and grid.
+Appling attributes to rows and columns.
 
 The following example applies the `class="row"` attribute to each row and the `class="column"` attribute to each column.
 
